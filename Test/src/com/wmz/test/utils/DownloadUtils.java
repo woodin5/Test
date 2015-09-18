@@ -26,10 +26,10 @@ public class DownloadUtils {
 	 * @param success
 	 * @param failure
 	 */
-	public static void download(String url, String target,
+	public static void downloadByxUtils(String url, String target,
 			final Handler handler, final int success, final int failure) {
 		HttpUtils httpUtils = new HttpUtils();
-		httpUtils.download(url, target, true, true,
+		httpUtils.download(url, target, true, false,
 				new RequestCallBack<File>() {
 
 					@Override
@@ -45,10 +45,9 @@ public class DownloadUtils {
 				});
 	}
 
-	public static void download(String url, String target,
+	public static void downloadByxUtils(String url, String target,
 			final Handler handler, final int success, final int failure,
 			final int update) {
-		Log.d("", "wmz:download1"); 
 		HttpUtils httpUtils = new HttpUtils();
 		httpUtils.download(url, target, true, true,
 				new RequestCallBack<File>() {

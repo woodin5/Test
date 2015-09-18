@@ -5,9 +5,15 @@
     android:layout_height="match_parent" >
 
     <Button
-        android:id="@+id/btn_downloadapk"
+        android:id="@+id/btn_download_apk"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="donwload" />
+        android:text="donwload apk" />
+
+    <Button
+        android:id="@+id/btn_download_file"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="donwload file" />
 
 </LinearLayout>

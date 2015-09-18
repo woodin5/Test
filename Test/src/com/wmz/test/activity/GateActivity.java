@@ -3,7 +3,6 @@ package com.wmz.test.activity;
 import java.io.File;
 import java.util.List;
 
-import android.R.integer;
 import android.app.Activity;
 import android.content.Context;
 import android.os.Bundle;
@@ -14,17 +13,14 @@ import android.view.View.OnClickListener;
 import android.widget.TextView;
 
 import com.wmz.test.R;
-import com.wmz.test.R.id;
-import com.wmz.test.R.layout;
 import com.wmz.test.db.SqliteDatabaseUtils;
 import com.wmz.test.utils.CursorUtils;
-import com.wmz.test.utils.FileUtils;
 
 import docom.sdk.client.ClsCamera;
 import docom.sdk.client.ClsDocomSDK;
-import docom.sdk.client.ClsFingerDev;
 import docom.sdk.client.ClsDocomSDK.Connection;
 import docom.sdk.client.ClsDocomSDK.MsgListener;
+import docom.sdk.client.ClsFingerDev;
 
 public class GateActivity extends Activity implements OnClickListener {
 
@@ -62,9 +58,9 @@ public class GateActivity extends Activity implements OnClickListener {
 	private void initSdk() {
 		mClsDocomSDK = new ClsDocomSDK(mContext);
 		/*
-		 * °ó¶¨SDK·þÎñ
+		 * ï¿½ï¿½SDKï¿½ï¿½ï¿½ï¿½
 		 * 
-		 * ²ÎÊý£º connection - Á¬½Ó³É¹¦ºóµÄ»Øµ÷½Ó¿Ú
+		 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ connection - ï¿½ï¿½ï¿½Ó³É¹ï¿½ï¿½ï¿½Ä»Øµï¿½ï¿½Ó¿ï¿½
 		 */
 		mClsDocomSDK.bindService(new Connection() {
 
@@ -82,28 +78,28 @@ public class GateActivity extends Activity implements OnClickListener {
 			@Override
 			public void onConnected() {
 				/*
-				 * ÉèÖÃÏûÏ¢¼àÌý»Øµ÷
+				 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½Øµï¿½
 				 * 
-				 * ²ÎÊý£º type - ÒÔÏÂÏûÏ¢ÀàÐÍµÄ×éºÏ,¶ººÅ','·Ö¸ô. . MSG - Î¤¸ù,´®¿ÚµÈÊäÈëÏûÏ¢ . PAS - *
-				 * ¹ýÕ¢»Ø³ÌÐÅºÅÏûÏ¢ . TCKPAS - Ë¢Æ±¹ýÕ¢»Ø³ÌÐÅºÅÏûÏ¢ . FNG - Ö¸ÎÆ²É¼¯ÏûÏ¢ . SHW - ÏÔÊ¾ÏûÏ¢
-				 * listener - ÏûÏ¢»Øµ÷½Ó¿Ú
+				 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ type - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½Íµï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½','ï¿½Ö¸ï¿½. . MSG - Î¤ï¿½ï¿½,ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ . PAS - *
+				 * ï¿½ï¿½Õ¢ï¿½Ø³ï¿½ï¿½Åºï¿½ï¿½ï¿½Ï¢ . TCKPAS - Ë¢Æ±ï¿½ï¿½Õ¢ï¿½Ø³ï¿½ï¿½Åºï¿½ï¿½ï¿½Ï¢ . FNG - Ö¸ï¿½Æ²É¼ï¿½ï¿½ï¿½Ï¢ . SHW - ï¿½ï¿½Ê¾ï¿½ï¿½Ï¢
+				 * listener - ï¿½ï¿½Ï¢ï¿½Øµï¿½ï¿½Ó¿ï¿½
 				 */
 				mClsDocomSDK.SetMsgListener("MSG,PAS,TCKPAS,FNG,SHW",
 						new MsgListener() {
 							/*
-							 * ²ÎÊý£º type - ÏûÏ¢ÀàÐÍ. . MSG - Î¤¸ù,´®¿ÚµÈÊäÈëÏûÏ¢ . PAS -
-							 * ¹ýÕ¢»Ø³ÌÐÅºÅÏûÏ¢ . * TCKPAS - Ë¢Æ±¹ýÕ¢»Ø³ÌÐÅºÅÏûÏ¢ . FNG - Ö¸ÎÆ²É¼¯ÏûÏ¢ .
-							 * SHW - ÏÔÊ¾ÏûÏ¢ message - * ÏûÏ¢ÄÚÈÝ,ÄÚÈÝÓëtypeÏûÏ¢ÀàÐÍÏà¹Ø .
-							 * type="MSG" - * ·½Ïò+¶Ë¿ÚºÅ,ÏûÏ¢ÄÚÈÝ,Èç:"IW1,12345678" . ·½Ïò:
-							 * I-Èë¿Ú, O-³ö¿Ú . ¶Ë¿ÚºÅ£º * C1-n:´®¿Ú,U1-n:USB,K1-n:¾ØÕó¼üÅÌ,
-							 * W1-n: Î¬¸ù . type="PAS" - * "A":AÏò»Ø³ÌÐÅºÅ,"B":BÏò»Ø³ÌÐÅºÅ .
-							 * type="TCKPAS" - * "Æ±ºÅ,Ê±¼ä,¹ýÕ¢·½Ïò,¹ýÕ¢ÏûÏ¢". .
-							 * Ê±¼ä:yyyy-MM-dd HH:mm:ss¸ñÊ½ . ¹ýÕ¢·½Ïò: A»òB .
-							 * ¹ýÕ¢ÏûÏ¢:0-ÑéÖ¤³¬Ê±,1-ÑéÖ¤Ê§°Ü,2-¹ýÕ¢³¬Ê±,3-ÒÑ¹ýÕ¢ . type="FNG" - *
-							 * "Ö¸ÎÆÒÇÐÍºÅ,Ö¸ÎÆÐÅÏ¢" . Ö¸ÎÆÒÇÐÍºÅ: 82:ÃÀ¹úÖ¸ÎÆÒÇ, 84:¹ú²úÖ¸ÎÆÒÇ . Ö¸ÎÆÐÅÏ¢:
+							 * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ type - ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½. . MSG - Î¤ï¿½ï¿½,ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ . PAS -
+							 * ï¿½ï¿½Õ¢ï¿½Ø³ï¿½ï¿½Åºï¿½ï¿½ï¿½Ï¢ . * TCKPAS - Ë¢Æ±ï¿½ï¿½Õ¢ï¿½Ø³ï¿½ï¿½Åºï¿½ï¿½ï¿½Ï¢ . FNG - Ö¸ï¿½Æ²É¼ï¿½ï¿½ï¿½Ï¢ .
+							 * SHW - ï¿½ï¿½Ê¾ï¿½ï¿½Ï¢ message - * ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½typeï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ .
+							 * type="MSG" - * ï¿½ï¿½ï¿½ï¿½+ï¿½Ë¿Úºï¿½,ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½:"IW1,12345678" . ï¿½ï¿½ï¿½ï¿½:
+							 * I-ï¿½ï¿½ï¿½, O-ï¿½ï¿½ï¿½ï¿½ . ï¿½Ë¿ÚºÅ£ï¿½ * C1-n:ï¿½ï¿½ï¿½ï¿½,U1-n:USB,K1-n:ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,
+							 * W1-n: Î¬ï¿½ï¿½ . type="PAS" - * "A":Aï¿½ï¿½Ø³ï¿½ï¿½Åºï¿½,"B":Bï¿½ï¿½Ø³ï¿½ï¿½Åºï¿½ .
+							 * type="TCKPAS" - * "Æ±ï¿½ï¿½,Ê±ï¿½ï¿½,ï¿½ï¿½Õ¢ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½Õ¢ï¿½ï¿½Ï¢". .
+							 * Ê±ï¿½ï¿½:yyyy-MM-dd HH:mm:ssï¿½ï¿½Ê½ . ï¿½ï¿½Õ¢ï¿½ï¿½ï¿½ï¿½: Aï¿½ï¿½B .
+							 * ï¿½ï¿½Õ¢ï¿½ï¿½Ï¢:0-ï¿½ï¿½Ö¤ï¿½ï¿½Ê±,1-ï¿½ï¿½Ö¤Ê§ï¿½ï¿½,2-ï¿½ï¿½Õ¢ï¿½ï¿½Ê±,3-ï¿½Ñ¹ï¿½Õ¢ . type="FNG" - *
+							 * "Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½,Ö¸ï¿½ï¿½ï¿½ï¿½Ï¢" . Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½Íºï¿½: 82:ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½, 84:ï¿½ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ . Ö¸ï¿½ï¿½ï¿½ï¿½Ï¢:
 							 * * X16^nnnn,
-							 * nnnnÊ®Áù½øÖÆÊýµÄ×Ö·û´®¸ñÊ½.Èç0x12,0x34±íÊ¾Îª"X16^1234" . *
-							 * type="SHW" - "ÃÅÆ±À´Ô´,ÃÅÆ±ÀàÐÍ,¿ÉÈëÔ°ÈËÊý,ÒÑÈëÔ°ÈËÊý,ÓÐÐ§ÈÕÆÚ,ÑéÖ¤¹ý³Ì".
+							 * nnnnÊ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½Ê½.ï¿½ï¿½0x12,0x34ï¿½ï¿½Ê¾Îª"X16^1234" . *
+							 * type="SHW" - "ï¿½ï¿½Æ±ï¿½ï¿½Ô´,ï¿½ï¿½Æ±ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½Ô°ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½Ô°ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½Ð§ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½Ö¤ï¿½ï¿½ï¿½ï¿½".
 							 * (non-Javadoc)
 							 * 
 							 * @see
@@ -184,13 +180,13 @@ public class GateActivity extends Activity implements OnClickListener {
 					mMatchSource = mClsFingerDev.Match(data, data.length, tmp2,
 							len2);
 					if (mMatchSource >= 20000) {
-						mText_show.setText("Åä¶Ô·ÖÊý=" + mMatchSource + "µÚ" + i
-								+ "´ÎÅä¶Ô³É¹¦£¬»¨·ÑÊ±¼ä="
+						mText_show.setText("ï¿½ï¿½Ô·ï¿½ï¿½ï¿½=" + mMatchSource + "ï¿½ï¿½" + i
+								+ "ï¿½ï¿½ï¿½ï¿½Ô³É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½="
 								+ (System.currentTimeMillis() - startTime));
 						break;
 					} else {
-						mText_show.setText("Åä¶Ô·ÖÊý=" + mMatchSource + "µÚ" + i
-								+ "´ÎÅä¶ÔÊ§°Ü£¬»¨·ÑÊ±¼ä="
+						mText_show.setText("ï¿½ï¿½Ô·ï¿½ï¿½ï¿½=" + mMatchSource + "ï¿½ï¿½" + i
+								+ "ï¿½ï¿½ï¿½ï¿½ï¿½Ê§ï¿½Ü£ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½="
 								+ (System.currentTimeMillis() - startTime));
 					}
 				}

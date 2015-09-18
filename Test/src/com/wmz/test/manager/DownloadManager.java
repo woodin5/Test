@@ -7,25 +7,30 @@ import com.wmz.test.utils.DownloadUtils;
 
 public class DownloadManager {
 
-	/**下载
+	/**
+	 * 下载
+	 * 
 	 * @param url
 	 * @param target
 	 * @param handler
 	 * @param success
 	 * @param failure
 	 */
-	public static void download(final String url, final String target,
+	public static void downloadByxUtils(final String url, final String target,
 			final Handler handler, final int success, final int failure) {
 		ExecutorSeviceManager.getExecutorInstance().execute(new Runnable() {
 
 			@Override
 			public void run() {
-				DownloadUtils.download(url, target, handler, success, failure);
+				DownloadUtils.downloadByxUtils(url, target, handler, success,
+						failure);
 			}
 		});
 	}
 
-	/**下载
+	/**
+	 * 下载
+	 * 
 	 * @param url
 	 * @param target
 	 * @param handler
@@ -33,16 +38,15 @@ public class DownloadManager {
 	 * @param failure
 	 * @param update
 	 */
-	public static void download(final String url, final String target,
+	public static void downloadByxUtils(final String url, final String target,
 			final Handler handler, final int success, final int failure,
 			final int update) {
-		Log.d("", "wmz:download"); 
 		ExecutorSeviceManager.getExecutorInstance().execute(new Runnable() {
 
 			@Override
 			public void run() {
-				DownloadUtils.download(url, target, handler, success, failure,
-						update);
+				DownloadUtils.downloadByxUtils(url, target, handler, success,
+						failure, update);
 			}
 		});
 	}

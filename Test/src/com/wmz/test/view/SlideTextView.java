@@ -5,11 +5,11 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.view.View.OnClickListener;
 import android.widget.TextView;
 
+
 public class SlideTextView extends TextView implements Runnable {
-	private int currentScrollX;// µ±Ç°¹ö¶¯µÄÎ»ÖÃ
+	private int currentScrollX;// ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î»ï¿½ï¿½
 	private boolean isStop = false;
 	private int textWidth;
 	private boolean isMeasure = false;
@@ -32,7 +32,7 @@ public class SlideTextView extends TextView implements Runnable {
 		// TODO Auto-generated method stub
 
 		super.onDraw(canvas);
-		if (!isMeasure) {// ÎÄ×Ö¿í¶ÈÖ»Ðè»ñÈ¡Ò»´Î¾Í¿ÉÒÔÁË
+		if (!isMeasure) {// ï¿½ï¿½ï¿½Ö¿ï¿½ï¿½Ö»ï¿½ï¿½ï¿½È¡Ò»ï¿½Î¾Í¿ï¿½ï¿½ï¿½ï¿½ï¿½
 			getTextWidth();
 			isMeasure = true;
 		}
@@ -40,7 +40,7 @@ public class SlideTextView extends TextView implements Runnable {
 	}
 
 	/**
-	 * »ñÈ¡ÎÄ×Ö¿í¶È
+	 * ï¿½ï¿½È¡ï¿½ï¿½ï¿½Ö¿ï¿½ï¿½
 	 */
 	private void getTextWidth() {
 		Paint paint = this.getPaint();
@@ -51,7 +51,7 @@ public class SlideTextView extends TextView implements Runnable {
 	@Override
 	public void run() {
 		Log.d("", "wmz:run-currentScrollX="+currentScrollX); 
-		currentScrollX -= 1;// ¹ö¶¯ËÙ¶È
+		currentScrollX -= 1;// ï¿½ï¿½ï¿½ï¿½ï¿½Ù¶ï¿½
 		scrollTo(currentScrollX, 0);
 		if (isStop) {
 			return;
@@ -64,19 +64,19 @@ public class SlideTextView extends TextView implements Runnable {
 		postDelayed(this, 50);
 	}
 
-	// ¿ªÊ¼¹ö¶¯
+	// ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½
 	public void startScroll() {
 		isStop = false;
 		this.removeCallbacks(this);
 		post(this);
 	}
 
-	// Í£Ö¹¹ö¶¯
+	// Í£Ö¹ï¿½ï¿½ï¿½ï¿½
 	public void stopScroll() {
 		isStop = true;
 	}
 
-	// ´ÓÍ·¿ªÊ¼¹ö¶¯
+	// ï¿½ï¿½Í·ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½
 	public void startFor0() {
 		currentScrollX = 0;
 		startScroll();

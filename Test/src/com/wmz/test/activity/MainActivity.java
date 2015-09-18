@@ -283,7 +283,7 @@ public class MainActivity extends Activity {
 		// .getAbsolutePath() + File.separator + "ad.jpg";
 		String target = mContext.getCacheDir().getAbsolutePath()
 				+ File.separator + "ad.jpg";
-		DownloadManager.download(urlImg, target, mHandler, 1, 0);
+		DownloadManager.downloadByxUtils(urlImg, target, mHandler, 1, 0);
 
 		// new Thread(new Runnable() {
 		//

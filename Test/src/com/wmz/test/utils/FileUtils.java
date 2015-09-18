@@ -4,6 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.InputStream;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
@@ -108,15 +109,26 @@ public class FileUtils {
 	}
 
 	/**
-	 * ɾ��֮ǰ�Ĺ��
+	 * 递归删除文件和文件夹
+	 * 
+	 * @param file
+	 *            要删除的根目录
 	 */
-	private static void deleteOldAd(Context context) {
-		String path = FileUtils.getAdPath(context).getAbsolutePath();
-		List<File> list = FileUtils.listPathFiles(path);
-		for (int i = 0; i < list.size(); i++) {
-			if (list.get(i).exists()) {
-				list.get(i).delete();
+	public static void RecursionDeleteFile(File file) {
+		if (file.isFile()) {
+			file.delete();
+			return;
+		}
+		if (file.isDirectory()) {
+			File[] childFile = file.listFiles();
+			if (childFile == null || childFile.length == 0) {
+				file.delete();
+				return;
 			}
+			for (File f : childFile) {
+				RecursionDeleteFile(f);
+			}
+			file.delete();
 		}
 	}
 
@@ -150,5 +162,25 @@ public class FileUtils {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public static boolean writeFile(String filePath, InputStream inputStream) {
+		if (inputStream == null)
+			return false;
+		byte[] bytes = new byte[1024];
+		int len = 0;
+		try {
+			FileOutputStream fs = new FileOutputStream(filePath);
+			while ((len = inputStream.read(bytes)) != -1) {
+				fs.write(bytes, 0, len);
+			}
+			fs.close();
+			return true; 
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		return false;
 	}
 }

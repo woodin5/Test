@@ -79,37 +79,37 @@ public class DownloadService extends Service {
 	private static UpgradManager upgradManager;
 
 	private Context mContext;
-	// Í¨Öª¶Ô»°¿ò
+	// Í¨Öªï¿½Ô»ï¿½ï¿½ï¿½
 	private Dialog noticeDialog;
-	// ÏÂÔØ¶Ô»°¿ò
+	// ï¿½ï¿½ï¿½Ø¶Ô»ï¿½ï¿½ï¿½
 	private Dialog downloadDialog;
-	// 'ÒÑ¾­ÊÇ×îÐÂ' »òÕß 'ÎÞ·¨»ñÈ¡×îÐÂ°æ±¾' µÄ¶Ô»°¿ò
+	// 'ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½' ï¿½ï¿½ï¿½ï¿½ 'ï¿½Þ·ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½Â°æ±¾' ï¿½Ä¶Ô»ï¿½ï¿½ï¿½
 	private Dialog latestOrFailDialog;
-	// ½ø¶ÈÌõ
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	private ProgressBar mProgress;
-	// ÏÔÊ¾ÏÂÔØÊýÖµ
+	// ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
 	private TextView mProgressText;
-	// ²éÑ¯¶¯»­
+	// ï¿½ï¿½Ñ¯ï¿½ï¿½ï¿½ï¿½
 	private ProgressDialog mProDialog;
-	// ½ø¶ÈÖµ
+	// ï¿½ï¿½ï¿½ï¿½Öµ
 	private int progress;
-	// ÏÂÔØÏß³Ì
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ß³ï¿½
 	private Thread downLoadThread;
-	// ÖÕÖ¹±ê¼Ç
+	// ï¿½ï¿½Ö¹ï¿½ï¿½ï¿½
 	private boolean interceptFlag;
-	// ÌáÊ¾Óï
+	// ï¿½ï¿½Ê¾ï¿½ï¿½
 	private String updateMsg = "";
-	// ·µ»ØµÄ°²×°°üurl
+	// ï¿½ï¿½ï¿½ØµÄ°ï¿½×°ï¿½ï¿½url
 	private String apkUrl = "";
-	// ÏÂÔØ°ü±£´æÂ·¾¶
+	// ï¿½ï¿½ï¿½Ø°ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½
 	private String savePath = "";
-	// apk±£´æÍêÕûÂ·¾¶
+	// apkï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½
 	private String apkFilePath = "";
-	// ÁÙÊ±ÏÂÔØÎÄ¼þÂ·¾¶
+	// ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½Â·ï¿½ï¿½
 	private String tmpFilePath = "";
-	// ÏÂÔØÎÄ¼þ´óÐ¡
+	// ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ð¡
 	private String apkFileSize;
-	// ÒÑÏÂÔØÎÄ¼þ´óÐ¡
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ð¡
 	private String tmpFileSize;
 
 	private String curVersionName = "";
@@ -130,7 +130,7 @@ public class DownloadService extends Service {
 				DecimalFormat df = new DecimalFormat("0.00");
 				tmpFileSize = df.format((float) current / 1024 / 1024) + "MB";
 				apkFileSize = df.format((float) total / 1024 / 1024) + "MB";
-				// µ±Ç°½ø¶ÈÖµ
+				// ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½Öµ
 				Log.d("tag", "wmz:progress=" + progress);
 				mProgress.setProgress(progress);
 				mProgressText.setText(tmpFileSize + "/" + apkFileSize);
@@ -141,7 +141,8 @@ public class DownloadService extends Service {
 				break;
 			case DOWN_NOSDCARD:
 				downloadDialog.dismiss();
-				Toast.makeText(mContext, "ÎÞ·¨ÏÂÔØ°²×°ÎÄ¼þ£¬Çë¼ì²éSD¿¨ÊÇ·ñ¹ÒÔØ", 3000).show();
+				Toast.makeText(mContext, "ï¿½Þ·ï¿½ï¿½ï¿½ï¿½Ø°ï¿½×°ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½SDï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½", 3000)
+						.show();
 				break;
 			case 3:
 				UpgradBean bean = JsonUtils
@@ -164,11 +165,11 @@ public class DownloadService extends Service {
 	}
 
 	/**
-	 * ¼ì²éApp¸üÐÂ
+	 * ï¿½ï¿½ï¿½Appï¿½ï¿½ï¿½ï¿½
 	 * 
 	 * @param context
 	 * @param isShowMsg
-	 *            ÊÇ·ñÏÔÊ¾ÌáÊ¾ÏûÏ¢
+	 *            ï¿½Ç·ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½Ê¾ï¿½ï¿½Ï¢
 	 */
 	public void checkAppUpdate(Context context, final boolean isShowMsg,
 			Handler hanlder, int what) {
@@ -177,8 +178,8 @@ public class DownloadService extends Service {
 		getCurrentVersion();
 		if (isShowMsg) {
 			if (mProDialog == null)
-				mProDialog = ProgressDialog.show(mContext, null, "ÕýÔÚ¼ì²â£¬ÇëÉÔºó...",
-						true, true);
+				mProDialog = ProgressDialog.show(mContext, null,
+						"ï¿½ï¿½ï¿½Ú¼ï¿½â£¬ï¿½ï¿½ï¿½Ôºï¿½...", true, true);
 			else if (mProDialog.isShowing()
 					|| (latestOrFailDialog != null && latestOrFailDialog
 							.isShowing()))
@@ -188,7 +189,7 @@ public class DownloadService extends Service {
 		final Handler mHandler = new Handler() {
 			public void handleMessage(Message msg) {
 
-				// ÏÔÊ¾¼ì²â½á¹û
+				// ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½
 				if (msg.what == 1) {
 					Log.d("tag", "wmz:1");
 					if (msg.obj == null)
@@ -213,7 +214,7 @@ public class DownloadService extends Service {
 
 	public boolean canUpgrad(UpgradBean bean) {
 
-		// ¹Ø±Õ²¢ÊÍ·ÅÊÍ·Å½ø¶ÈÌõ¶Ô»°¿ò
+		// ï¿½Ø±Õ²ï¿½ï¿½Í·ï¿½ï¿½Í·Å½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô»ï¿½ï¿½ï¿½
 		if (mProDialog != null) {
 			mProDialog.dismiss();
 			mProDialog = null;
@@ -236,28 +237,28 @@ public class DownloadService extends Service {
 	}
 
 	/**
-	 * ÏÔÊ¾'ÒÑ¾­ÊÇ×îÐÂ'»òÕß'ÎÞ·¨»ñÈ¡°æ±¾ÐÅÏ¢'¶Ô»°¿ò
+	 * ï¿½ï¿½Ê¾'ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½'ï¿½ï¿½ï¿½ï¿½'ï¿½Þ·ï¿½ï¿½ï¿½È¡ï¿½æ±¾ï¿½ï¿½Ï¢'ï¿½Ô»ï¿½ï¿½ï¿½
 	 */
 	private void showLatestOrFailDialog(int dialogType) {
 		if (latestOrFailDialog != null) {
-			// ¹Ø±Õ²¢ÊÍ·ÅÖ®Ç°µÄ¶Ô»°¿ò
+			// ï¿½Ø±Õ²ï¿½ï¿½Í·ï¿½Ö®Ç°ï¿½Ä¶Ô»ï¿½ï¿½ï¿½
 			latestOrFailDialog.dismiss();
 			latestOrFailDialog = null;
 		}
 		AlertDialog.Builder builder = new Builder(mContext);
-		builder.setTitle("ÏµÍ³ÌáÊ¾");
+		builder.setTitle("ÏµÍ³ï¿½ï¿½Ê¾");
 		if (dialogType == DIALOG_TYPE_LATEST) {
-			builder.setMessage("Äúµ±Ç°ÒÑ¾­ÊÇ×îÐÂ°æ±¾");
+			builder.setMessage("ï¿½ï¿½ï¿½ï¿½Ç°ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â°æ±¾");
 		} else if (dialogType == DIALOG_TYPE_FAIL) {
-			builder.setMessage("ÎÞ·¨»ñÈ¡°æ±¾¸üÐÂÐÅÏ¢");
+			builder.setMessage("ï¿½Þ·ï¿½ï¿½ï¿½È¡ï¿½æ±¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢");
 		}
-		builder.setPositiveButton("È·¶¨", null);
+		builder.setPositiveButton("È·ï¿½ï¿½", null);
 		latestOrFailDialog = builder.create();
 		latestOrFailDialog.show();
 	}
 
 	/**
-	 * »ñÈ¡µ±Ç°¿Í»§¶Ë°æ±¾ÐÅÏ¢
+	 * ï¿½ï¿½È¡ï¿½ï¿½Ç°ï¿½Í»ï¿½ï¿½Ë°æ±¾ï¿½ï¿½Ï¢
 	 */
 	private void getCurrentVersion() {
 		try {
@@ -271,20 +272,20 @@ public class DownloadService extends Service {
 	}
 
 	/**
-	 * ÏÔÊ¾°æ±¾¸üÐÂÍ¨Öª¶Ô»°¿ò
+	 * ï¿½ï¿½Ê¾ï¿½æ±¾ï¿½ï¿½ï¿½ï¿½Í¨Öªï¿½Ô»ï¿½ï¿½ï¿½
 	 */
 	private void showNoticeDialog() {
 		AlertDialog.Builder builder = new Builder(mContext);
-		builder.setTitle("Èí¼þ°æ±¾¸üÐÂ");
+		builder.setTitle("ï¿½ï¿½ï¿½ï¿½æ±¾ï¿½ï¿½ï¿½ï¿½");
 		builder.setMessage(updateMsg);
-		builder.setPositiveButton("Á¢¼´¸üÐÂ", new OnClickListener() {
+		builder.setPositiveButton("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", new OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				dialog.dismiss();
 				showDownloadDialog();
 			}
 		});
-		builder.setNegativeButton("ÒÔºóÔÙËµ", new OnClickListener() {
+		builder.setNegativeButton("ï¿½Ôºï¿½ï¿½ï¿½Ëµ", new OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				dialog.dismiss();
@@ -295,11 +296,11 @@ public class DownloadService extends Service {
 	}
 
 	/**
-	 * ÏÔÊ¾ÏÂÔØ¶Ô»°¿ò
+	 * ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½Ø¶Ô»ï¿½ï¿½ï¿½
 	 */
 	private void showDownloadDialog() {
 		AlertDialog.Builder builder = new Builder(mContext);
-		builder.setTitle("ÕýÔÚÏÂÔØÐÂ°æ±¾");
+		builder.setTitle("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â°æ±¾");
 
 		final LayoutInflater inflater = LayoutInflater.from(mContext);
 		View v = inflater.inflate(R.layout.update_progress, null);
@@ -307,7 +308,7 @@ public class DownloadService extends Service {
 		mProgressText = (TextView) v.findViewById(R.id.update_progress_text);
 
 		builder.setView(v);
-		builder.setNegativeButton("È¡Ïû", new OnClickListener() {
+		builder.setNegativeButton("È¡ï¿½ï¿½", new OnClickListener() {
 			@Override
 			public void onClick(DialogInterface dialog, int which) {
 				dialog.dismiss();
@@ -339,7 +340,7 @@ public class DownloadService extends Service {
 						+ ".apk";
 				String tmpApk = "OSChinaApp_" + mUpgradBean.getVersionName()
 						+ ".tmp";
-				// ÅÐ¶ÏÊÇ·ñ¹ÒÔØÁËSD¿¨
+				// ï¿½Ð¶ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½SDï¿½ï¿½
 				String storageState = Environment.getExternalStorageState();
 				if (storageState.equals(Environment.MEDIA_MOUNTED)) {
 					savePath = Environment.getExternalStorageDirectory()
@@ -352,7 +353,7 @@ public class DownloadService extends Service {
 					tmpFilePath = savePath + tmpApk;
 				}
 
-				// Ã»ÓÐ¹ÒÔØSD¿¨£¬ÎÞ·¨ÏÂÔØÎÄ¼þ
+				// Ã»ï¿½Ð¹ï¿½ï¿½ï¿½SDï¿½ï¿½ï¿½ï¿½ï¿½Þ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
 				if (apkFilePath == null || apkFilePath == "") {
 					mHandler.sendEmptyMessage(DOWN_NOSDCARD);
 					return;
@@ -360,14 +361,14 @@ public class DownloadService extends Service {
 
 				File ApkFile = new File(apkFilePath);
 
-				// ÊÇ·ñÒÑÏÂÔØ¸üÐÂÎÄ¼þ
+				// ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¸ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
 				if (ApkFile.exists()) {
 					downloadDialog.dismiss();
 					installApk();
 					return;
 				}
 
-				// Êä³öÁÙÊ±ÏÂÔØÎÄ¼þ
+				// ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½
 				File tmpFile = new File(tmpFilePath);
 				FileOutputStream fos = new FileOutputStream(tmpFile);
 
@@ -378,9 +379,9 @@ public class DownloadService extends Service {
 				int length = conn.getContentLength();
 				InputStream is = conn.getInputStream();
 
-				// ÏÔÊ¾ÎÄ¼þ´óÐ¡¸ñÊ½£º2¸öÐ¡ÊýµãÏÔÊ¾
+				// ï¿½ï¿½Ê¾ï¿½Ä¼ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½Ê½ï¿½ï¿½2ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾
 				DecimalFormat df = new DecimalFormat("0.00");
-				// ½ø¶ÈÌõÏÂÃæÏÔÊ¾µÄ×ÜÎÄ¼þ´óÐ¡
+				// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ð¡
 				apkFileSize = df.format((float) length / 1024 / 1024) + "MB";
 
 				int count = 0;
@@ -389,22 +390,22 @@ public class DownloadService extends Service {
 				do {
 					int numread = is.read(buf);
 					count += numread;
-					// ½ø¶ÈÌõÏÂÃæÏÔÊ¾µÄµ±Ç°ÏÂÔØÎÄ¼þ´óÐ¡
+					// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¾ï¿½Äµï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½Ð¡
 					tmpFileSize = df.format((float) count / 1024 / 1024) + "MB";
-					// µ±Ç°½ø¶ÈÖµ
+					// ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½Öµ
 					progress = (int) (((float) count / length) * 100);
-					// ¸üÐÂ½ø¶È
+					// ï¿½ï¿½ï¿½Â½ï¿½ï¿½ï¿½
 					mHandler.sendEmptyMessage(DOWN_UPDATE);
 					if (numread <= 0) {
-						// ÏÂÔØÍê³É - ½«ÁÙÊ±ÏÂÔØÎÄ¼þ×ª³ÉAPKÎÄ¼þ
+						// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½×ªï¿½ï¿½APKï¿½Ä¼ï¿½
 						if (tmpFile.renameTo(ApkFile)) {
-							// Í¨Öª°²×°
+							// Í¨Öªï¿½ï¿½×°
 							mHandler.sendEmptyMessage(DOWN_OVER);
 						}
 						break;
 					}
 					fos.write(buf, 0, numread);
-				} while (!interceptFlag);// µã»÷È¡Ïû¾ÍÍ£Ö¹ÏÂÔØ
+				} while (!interceptFlag);// ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½Í£Ö¹ï¿½ï¿½ï¿½ï¿½
 
 				fos.close();
 				is.close();
@@ -418,7 +419,7 @@ public class DownloadService extends Service {
 	};
 
 	/**
-	 * ÏÂÔØapk
+	 * ï¿½ï¿½ï¿½ï¿½apk
 	 * 
 	 * @param url
 	 */
@@ -446,14 +447,14 @@ public class DownloadService extends Service {
 		// apkFilePath = FileUtils.getDownloadPath(mContext) + File.separator
 		// + "TicketsChecking" + ".apk";
 		Log.d("tag", "wmz:apkFilePath=" + apkFilePath);
-		DownloadManager.download(url, apkFilePath, mHandler, DOWN_OVER, -1,
-				DOWN_UPDATE);
+		DownloadManager.downloadByxUtils(url, apkFilePath, mHandler, DOWN_OVER,
+				-1, DOWN_UPDATE);
 		downLoadThread = new Thread(mdownApkRunnable);
 		// downLoadThread.start();
 	}
 
 	/**
-	 * °²×°apk
+	 * ï¿½ï¿½×°apk
 	 * 
 	 * @param url
 	 */
@@ -479,32 +480,4 @@ public class DownloadService extends Service {
 		// FileUtils.deleteFile(new File(apkFilePath));
 	}
 
-	public int execRootCmdSilent(String cmd) {
-		int result = -1;
-		DataOutputStream dos = null;
-
-		try {
-			Process p = Runtime.getRuntime().exec("su");
-			dos = new DataOutputStream(p.getOutputStream());
-
-			Log.i("", "wmz:cmd=" + cmd);
-			dos.writeBytes(cmd + "\n");
-			dos.flush();
-			dos.writeBytes("exit\n");
-			dos.flush();
-			p.waitFor();
-			result = p.exitValue();
-		} catch (Exception e) {
-			e.printStackTrace();
-		} finally {
-			if (dos != null) {
-				try {
-					dos.close();
-				} catch (IOException e) {
-					e.printStackTrace();
-				}
-			}
-		}
-		return result;
-	}
 }
