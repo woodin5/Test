@@ -15,8 +15,7 @@ public class SlideTextViewActivity extends Activity {
 
 		SlideTextView textView = (SlideTextView) findViewById(R.id.text_slide);
 		textView.setText("123432432");
-		// textView.startScroll();
-
+		textView.startScroll();
 
 	}
 

@@ -15,6 +15,7 @@
     <uses-permission android:name="android.permission.CLEAR_APP_CACHE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -48,19 +49,22 @@
 
         <service android:name="com.wmz.test.activity.DownloadServiced" />
 
-        <activity android:name="com.wmz.test.activity.DialogCancelActivity" >
+        <activity android:name="com.wmz.test.activity.DialogCancelActivity" />
+        <activity android:name="com.wmz.test.activity.SlideTextViewActivity" />
+        <activity android:name="com.wmz.test.activity.UploadFileActivity" />
+        <activity android:name="com.wmz.test.activity.WebViewActivity" />
+        <activity android:name="com.wmz.test.activity.DownloadActivity" />
+        <activity android:name="com.wmz.test.activity.FileActivity" />
+        <activity android:name="com.wmz.test.activity.SQLiteActivity" />
+        <activity android:name="com.wmz.test.activity.NetActivity" />
+        <activity android:name="com.wmz.test.activity.DeviceActivity" />
+        <activity
+            android:name="com.wmz.test.activity.ImageViewActivity"
+            android:label="@string/title_activity_image_view" >
         </activity>
-        <activity android:name="com.wmz.test.activity.SlideTextViewActivity" >
-        </activity>
-        <activity android:name="com.wmz.test.activity.UploadFileActivity" >
-        </activity>
-        <activity android:name="com.wmz.test.activity.WebViewActivity" >
-        </activity>
-        <activity android:name="com.wmz.test.activity.DownloadActivity" >
-        </activity>
-        <activity android:name="com.wmz.test.activity.FileActivity" >
-        </activity>
-        <activity android:name="com.wmz.test.activity.SQLiteActivity" >
+        <activity
+            android:name="com.wmz.test.activity.RecyclerViewActivity"
+            android:label="@string/title_activity_recycler_view" >
         </activity>
     </application>
 

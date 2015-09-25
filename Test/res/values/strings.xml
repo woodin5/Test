@@ -4,5 +4,9 @@
     <string name="app_name">Test</string>
     <string name="action_settings">Settings</string>
     <string name="hello_world">Hello world!</string>
+    <string name="title_activity_net">NetActivity</string>
+    <string name="title_activity_device">DeviceActivity</string>
+    <string name="title_activity_image_view">ImageViewActivity</string>
+    <string name="title_activity_recycler_view">RecyclerViewActivity</string>
 
 </resources>

@@ -12,12 +12,15 @@ import docom.sdk.client.ClsSerialPort;
 
 public class ListActivity extends android.app.ListActivity {
 
-	private String[] strs = { "download", "sqlite", "webview", "file",
-			"upload", "slide", "dialog", "TestGate" };
-	private Class<?>[] classs = { DownloadActivity.class, SQLiteActivity.class,
-			WebViewActivity.class, FileActivity.class,
+	private String[] strs = { "TestGate", "recyclerView", "imageView",
+			"device", "net", "download", "sqlite", "webview", "file", "upload",
+			"slide", "dialog" };
+	private Class<?>[] classs = { GateActivity.class,
+			RecyclerViewActivity.class, ImageViewActivity.class,
+			DeviceActivity.class, NetActivity.class, DownloadActivity.class,
+			SQLiteActivity.class, WebViewActivity.class, FileActivity.class,
 			UploadFileActivity.class, SlideTextViewActivity.class,
-			DialogCancelActivity.class, GateActivity.class };
+			DialogCancelActivity.class };
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +33,6 @@ public class ListActivity extends android.app.ListActivity {
 
 	@Override
 	protected void onListItemClick(ListView l, View v, int position, long id) {
-		// TODO Auto-generated method stub
 		super.onListItemClick(l, v, position, id);
 		Intent intent = new Intent(this, classs[position]);
 		startActivity(intent);

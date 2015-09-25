@@ -4,21 +4,20 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <com.wmz.test.view.SlideTextView
-        android:id="@+id/text_slide"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="1234"
-        android:textColor="#f00"
-        android:textSize="40sp"
-        android:visibility="gone" />
-
-    <TextView
+    <EditText
         android:id="@+id/text_vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:ems="1"
         android:text="1消费1"
         android:textColor="#f00" />
+
+    <com.wmz.test.view.SlideTextView
+        android:id="@+id/text_slide"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="1234"
+        android:textColor="#f00"
+        android:textSize="40sp" />
 
 </LinearLayout>
