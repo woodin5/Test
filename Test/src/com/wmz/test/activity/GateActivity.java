@@ -54,7 +54,8 @@ public class GateActivity extends Activity implements OnClickListener {
 		public void handleMessage(android.os.Message msg) {
 			switch (msg.what) {
 			case 0:
-
+				mText_show.setText("time="
+						+ (System.currentTimeMillis() - startTime));
 				Log.d(TAG, "wmz:0:time="
 						+ (System.currentTimeMillis() - startTime));
 				break;
@@ -129,7 +130,7 @@ public class GateActivity extends Activity implements OnClickListener {
 	}
 
 	private void createFingerPrintDB() {
-		String path = "/ext_sd/fingerprint.db3";
+		String path = "/ext_sd/fingerprint_test.db3";
 		String sql = "create table table_fingerprint(_id INTEGER PRIMARY KEY AUTOINCREMENT, fingerprint_length integer,fingerprint varchar)";
 		boolean isCreateTable = new File(path).exists() ? false : true;
 		SqliteDatabaseUtils.openOrCreateDatabase(path);
@@ -221,7 +222,7 @@ public class GateActivity extends Activity implements OnClickListener {
 				public void run() {
 					startTime = System.currentTimeMillis();
 					SqliteDatabaseUtils.db.beginTransaction();
-					for (int i = 0; i < 1999; i++) {
+					for (int i = 0; i < 19; i++) {
 						tmp1[len2] = (byte) i;
 						ContentValues values = new ContentValues();
 						values.put("fingerprint_length", len2 + 1);
@@ -245,22 +246,47 @@ public class GateActivity extends Activity implements OnClickListener {
 			break;
 		case R.id.btn_match_finger12:
 			startTime = System.currentTimeMillis();
+
 			mMatchSource = mClsFingerDev.Match(tmp1, len1, tmp2, len2);
-			// int count = SqliteDatabaseUtils.getCount();
-			// Log.d(TAG, "wmz:count=" + count);
 			Log.d(TAG, "wmz:12-mMatchSouce=" + mMatchSource);
 			Log.d(TAG, "wmz:time=" + (System.currentTimeMillis() - startTime));
-			mText_show.setText("对比分数="+mMatchSource+",花费时间="+(System.currentTimeMillis() - startTime));
+			mText_show.setText("对比分数=" + mMatchSource + ",花费时间="
+					+ (System.currentTimeMillis() - startTime)+",len1="+len1+",len2="+len2);
+
+			mMatchSource = mClsFingerDev.Match(tmp1, len1-1, tmp2, len2-1);
+			Log.d(TAG, "wmz:12-mMatchSouce=" + mMatchSource);
+			Log.d(TAG, "wmz:time=" + (System.currentTimeMillis() - startTime));
+			mText_show.setText(mText_show.getText() + "\n" + "对比分数="
+					+ mMatchSource + ",花费时间="
+					+ (System.currentTimeMillis() - startTime));
+
+			byte[] tmp11 = new byte[len1-1];
+			byte[] tmp22 = new byte[len2-1];
+			for (int i = 0; i < tmp11.length; i++) {
+				tmp11[i] = tmp1[i];
+			}
+			for (int i = 0; i < tmp22.length; i++) {
+				tmp22[i] = tmp2[i];
+			}
+			mMatchSource = mClsFingerDev.Match(tmp11, tmp11.length, tmp22,
+					tmp22.length);
+			Log.d(TAG, "wmz:mMatchSouce=" + mMatchSource);
+			Log.d(TAG, "wmz:time=" + (System.currentTimeMillis() - startTime));
+			mText_show.setText(mText_show.getText() + "\n" + "对比分数="
+					+ mMatchSource + ",花费时间="
+					+ (System.currentTimeMillis() - startTime));
 			break;
 		case R.id.btn_match_finger:
-			isMatch = false; 
+			isMatch = false;
 			startTime = System.currentTimeMillis();
 			len2 = mClsFingerDev.GetFingerTmp(tmp2, 1000);
 
 			ArrayList<ReadRunnable> list = new ArrayList<GateActivity.ReadRunnable>();
-			for (int i = 0; i < 1; i++) {
-				list.add(new ReadRunnable(i, SqliteDatabaseUtils.getCount()));
-			}
+			// for (int i = 0; i < 1; i++) {
+			list.add(new ReadRunnable(0, SqliteDatabaseUtils.getCount()));
+			// list.add(new ReadRunnable(SqliteDatabaseUtils.getCount() / 2,
+			// SqliteDatabaseUtils.getCount() / 2));
+			// }
 
 			startThreads(list);
 

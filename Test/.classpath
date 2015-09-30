@@ -7,6 +7,5 @@
 	<classpathentry kind="lib" path="libs/docomsdkclient.jar"/>
 	<classpathentry exported="true" kind="lib" path="libs/android-support-v7-recyclerview.jar"/>
 	<classpathentry kind="lib" path="libs/android-support-v4.jar"/>
-	<classpathentry kind="src" path="gen"/>
 	<classpathentry kind="output" path="bin/classes"/>
 </classpath>

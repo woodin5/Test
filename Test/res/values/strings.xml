@@ -8,5 +8,8 @@
     <string name="title_activity_device">DeviceActivity</string>
     <string name="title_activity_image_view">ImageViewActivity</string>
     <string name="title_activity_recycler_view">RecyclerViewActivity</string>
+    <string name="title_activity_player">PlayerActivity</string>
+    <string name="title_activity_gif">GifActivity</string>
+    <string name="title_activity_file_select">FileSelectActivity</string>
 
 </resources>

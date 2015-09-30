@@ -16,6 +16,9 @@
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <uses-permission android:name="android.permission.WRITE_SETTINGS" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -58,13 +61,16 @@
         <activity android:name="com.wmz.test.activity.SQLiteActivity" />
         <activity android:name="com.wmz.test.activity.NetActivity" />
         <activity android:name="com.wmz.test.activity.DeviceActivity" />
+        <activity android:name="com.wmz.test.activity.ImageViewActivity" />
+        <activity android:name="com.wmz.test.activity.RecyclerViewActivity" />
+        <activity android:name="com.wmz.test.activity.PlayerActivity" />
         <activity
-            android:name="com.wmz.test.activity.ImageViewActivity"
-            android:label="@string/title_activity_image_view" >
+            android:name="com.wmz.test.activity.GifActivity"
+            android:label="@string/title_activity_gif" >
         </activity>
         <activity
-            android:name="com.wmz.test.activity.RecyclerViewActivity"
-            android:label="@string/title_activity_recycler_view" >
+            android:name="com.wmz.test.activity.FileSelectActivity"
+            android:label="@string/title_activity_file_select" >
         </activity>
     </application>
 

@@ -7,15 +7,17 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
 import com.wmz.test.R;
+import com.wmz.test.fileselect.FileSelectDialog;
 
 import docom.sdk.client.ClsSerialPort;
 
 public class ListActivity extends android.app.ListActivity {
 
-	private String[] strs = { "TestGate", "recyclerView", "imageView",
-			"device", "net", "download", "sqlite", "webview", "file", "upload",
-			"slide", "dialog" };
-	private Class<?>[] classs = { GateActivity.class,
+	private String[] strs = { "TestGate", "fileSelect", "player", "gif",
+			"recyclerView", "imageView", "device", "net", "download", "sqlite",
+			"webview", "file", "upload", "slide", "dialog" };
+	private Class<?>[] classs = { GateActivity.class, FileSelectActivity.class,
+			PlayerActivity.class, GifActivity.class,
 			RecyclerViewActivity.class, ImageViewActivity.class,
 			DeviceActivity.class, NetActivity.class, DownloadActivity.class,
 			SQLiteActivity.class, WebViewActivity.class, FileActivity.class,
