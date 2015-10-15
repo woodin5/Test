@@ -11,5 +11,7 @@
     <string name="title_activity_player">PlayerActivity</string>
     <string name="title_activity_gif">GifActivity</string>
     <string name="title_activity_file_select">FileSelectActivity</string>
+    <string name="title_activity_volley">VolleyActivity</string>
+    <string name="title_activity_chart">ChartActivity</string>
 
 </resources>

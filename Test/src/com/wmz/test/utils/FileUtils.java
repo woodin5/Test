@@ -153,7 +153,8 @@ public class FileUtils {
 		try {
 			Long startTime = System.currentTimeMillis();
 			Log.d("", "wmz:startTime=" + startTime);
-			FileOutputStream fileOutputStream = new FileOutputStream(filePath);
+			FileOutputStream fileOutputStream = new FileOutputStream(filePath,
+					true);
 			fileOutputStream.write(data);
 			Log.d("", "wmz:time=" + (System.currentTimeMillis() - startTime));
 			fileOutputStream.close();
@@ -175,7 +176,7 @@ public class FileUtils {
 				fs.write(bytes, 0, len);
 			}
 			fs.close();
-			return true; 
+			return true;
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {

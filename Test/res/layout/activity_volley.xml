@@ -1,0 +1,47 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical" >
+
+        <Button
+            android:id="@+id/btn_volley_StringRequest_get"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="StringRequest_get" />
+
+        <Button
+            android:id="@+id/btn_volley_StringRequest_post"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="StringRequest_post" />
+
+        <Button
+            android:id="@+id/btn_volley_JsonObjectRequest_get"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="JsonObjectRequest_get" />
+
+        <Button
+            android:id="@+id/btn_volley_JsonObjectRequest_post"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="JsonObjectRequest_post" />
+
+        <Button
+            android:id="@+id/btn_volley_ImageRequest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ImageRequest" />
+
+        <TextView
+            android:id="@+id/text_volley_show"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+    </LinearLayout>
+
+</ScrollView>

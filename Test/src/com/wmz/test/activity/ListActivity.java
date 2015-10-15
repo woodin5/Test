@@ -13,10 +13,12 @@ import docom.sdk.client.ClsSerialPort;
 
 public class ListActivity extends android.app.ListActivity {
 
-	private String[] strs = { "TestGate", "fileSelect", "player", "gif",
-			"recyclerView", "imageView", "device", "net", "download", "sqlite",
-			"webview", "file", "upload", "slide", "dialog" };
-	private Class<?>[] classs = { GateActivity.class, FileSelectActivity.class,
+	private String[] strs = { "TestGate", "chart", "volley", "fileSelect",
+			"player", "gif", "recyclerView", "imageView", "device", "net",
+			"download", "sqlite", "webview", "file", "upload", "slide",
+			"dialog" };
+	private Class<?>[] classs = { GateActivity.class, ChartActivity.class,
+			VolleyActivity.class, FileSelectActivity.class,
 			PlayerActivity.class, GifActivity.class,
 			RecyclerViewActivity.class, ImageViewActivity.class,
 			DeviceActivity.class, NetActivity.class, DownloadActivity.class,
@@ -30,7 +32,7 @@ public class ListActivity extends android.app.ListActivity {
 		setContentView(R.layout.activity_list);
 		setListAdapter(new ArrayAdapter<String>(this,
 				android.R.layout.simple_list_item_1, strs));
-
+		getListView().setTextFilterEnabled(true);
 	}
 
 	@Override

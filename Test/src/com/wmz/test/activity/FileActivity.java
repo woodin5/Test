@@ -22,20 +22,22 @@ public class FileActivity extends Activity implements OnClickListener {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_file);
 
-		initView(); 
+		initView();
 	}
 
 	private void initView() {
 		findViewById(R.id.btn_file_write).setOnClickListener(this);
-		findViewById(R.id.btn_file_read).setOnClickListener(this); 
+		findViewById(R.id.btn_file_read).setOnClickListener(this);
 	}
 
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.btn_file_write:
-//			FileUtils.write(mContext, "wmz_1", "wmz_1");
-			FileUtils.writeFile(mContext, EnvironmentUtils.getExternalStoragePath()+File.separator+"wmz_2.txt", "wmz_2".getBytes());
+			// FileUtils.write(mContext, "wmz_1", "wmz_1");
+			FileUtils.writeFile(mContext,
+					EnvironmentUtils.getExternalStoragePath() + File.separator
+							+ "wmz_2.txt", "wmz_2\n".getBytes());
 			break;
 
 		case R.id.btn_file_read:
