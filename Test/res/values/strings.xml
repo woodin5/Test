@@ -13,5 +13,6 @@
     <string name="title_activity_file_select">FileSelectActivity</string>
     <string name="title_activity_volley">VolleyActivity</string>
     <string name="title_activity_chart">ChartActivity</string>
+    <string name="title_activity_face">FaceActivity</string>
 
 </resources>

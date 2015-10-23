@@ -15,9 +15,9 @@ public class BootupReceiver extends BroadcastReceiver {
 			 } catch (InterruptedException e) {
 			 e.printStackTrace();
 			 }
-			 Intent i = new Intent(context, ListActivity.class);
-			 i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-			 context.startActivity(i);
+//			 Intent i = new Intent(context, ListActivity.class);
+//			 i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+//			 context.startActivity(i);
 	}
 
 }

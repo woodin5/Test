@@ -28,6 +28,11 @@
         <activity
             android:name="com.wmz.test.activity.MainActivity"
             android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
 
         <receiver android:name="com.wmz.test.receiver.BootupReceiver" >
@@ -41,11 +46,6 @@
         <activity
             android:name="com.wmz.test.activity.ListActivity"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity android:name="com.wmz.test.activity.GateActivity" />
         <activity android:name="com.wmz.test.activity.DownApkActivitykActivity" />
@@ -75,10 +75,28 @@
         <activity
             android:name="com.wmz.test.activity.VolleyActivity"
             android:label="@string/title_activity_volley" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="com.wmz.test.list" />
+            </intent-filter>
         </activity>
         <activity
             android:name="com.wmz.test.activity.ChartActivity"
             android:label="@string/title_activity_chart" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.wmz.test.list" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.wmz.test.activity.FaceActivity"
+            android:label="face" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.wmz.test.list" />
+            </intent-filter>
         </activity>
     </application>
 

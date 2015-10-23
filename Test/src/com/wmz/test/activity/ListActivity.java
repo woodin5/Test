@@ -13,13 +13,13 @@ import docom.sdk.client.ClsSerialPort;
 
 public class ListActivity extends android.app.ListActivity {
 
-	private String[] strs = { "TestGate", "chart", "volley", "fileSelect",
-			"player", "gif", "recyclerView", "imageView", "device", "net",
-			"download", "sqlite", "webview", "file", "upload", "slide",
-			"dialog" };
-	private Class<?>[] classs = { GateActivity.class, ChartActivity.class,
-			VolleyActivity.class, FileSelectActivity.class,
-			PlayerActivity.class, GifActivity.class,
+	private String[] strs = { "TestGate", "face", "chart", "volley",
+			"fileSelect", "player", "gif", "recyclerView", "imageView",
+			"device", "net", "download", "sqlite", "webview", "file", "upload",
+			"slide", "dialog" };
+	private Class<?>[] classs = { GateActivity.class, FaceActivity.class,
+			ChartActivity.class, VolleyActivity.class,
+			FileSelectActivity.class, PlayerActivity.class, GifActivity.class,
 			RecyclerViewActivity.class, ImageViewActivity.class,
 			DeviceActivity.class, NetActivity.class, DownloadActivity.class,
 			SQLiteActivity.class, WebViewActivity.class, FileActivity.class,

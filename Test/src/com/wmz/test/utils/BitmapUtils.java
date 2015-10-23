@@ -3,7 +3,7 @@
  * Copyright (c) 2013 ZDSoft Networks, Inc. All rights reserved.
  * $Id$
  */
-package com.wmz.test.receiver;
+package com.wmz.test.utils;
 
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
