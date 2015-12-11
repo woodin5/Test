@@ -120,4 +120,52 @@ public class ConnectServerManager {
 		});
 	}
 
+	/**
+	 * 执行访问后台数据
+	 * 
+	 * @param url
+	 * @param handler
+	 * @param what
+	 */
+	public static void execute(final String url, final Handler handler,
+			final int what) {
+		ExecutorSeviceManager.getExecutorInstance().execute(new Runnable() {
+
+			@Override
+			public void run() {
+				String response = NetUtils
+						.getStringFromHttpURLConnectionByGet(url);
+				HandlerUtils.sendHandle(handler, response, what);
+			}
+		});
+	}
+
+	/**
+	 * 执行访问后台数据
+	 * 
+	 * @param url
+	 * @param params
+	 * @param handler
+	 * @param what
+	 */
+	public static void execute(final String url, final String params,
+			final Handler handler, final int what) {
+		ExecutorSeviceManager.getExecutorInstance().execute(new Runnable() {
+
+			@Override
+			public void run() {
+				String response = NetUtils
+						.getStringFromHttpURLConnectionByPost(url, params);
+				HandlerUtils.sendHandle(handler, response, what);
+			}
+		});
+	}
+
+	public static void shutdownNow() {
+		ExecutorSeviceManager.shutdownNow();
+	}
+
+	public static void shutdown() {
+		ExecutorSeviceManager.shutdown();
+	}
 }

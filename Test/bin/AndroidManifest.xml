@@ -19,6 +19,7 @@
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW" />
 
     <application
         android:allowBackup="true"
@@ -48,15 +49,14 @@
             </intent-filter>
         </activity>
         <activity android:name="com.wmz.test.activity.GateActivity" />
-        <activity android:name="com.wmz.test.activity.DownApkActivitykActivity" />
+        <activity android:name="com.wmz.test.activity.DownloadActivity" />
 
-        <service android:name="com.wmz.test.activity.DownloadServiced" />
+        <service android:name="com.wmz.test.activity.UpdateService" />
 
         <activity android:name="com.wmz.test.activity.DialogCancelActivity" />
         <activity android:name="com.wmz.test.activity.SlideTextViewActivity" />
         <activity android:name="com.wmz.test.activity.UploadFileActivity" />
         <activity android:name="com.wmz.test.activity.WebViewActivity" />
-        <activity android:name="com.wmz.test.activity.DownloadActivity" />
         <activity android:name="com.wmz.test.activity.FileActivity" />
         <activity android:name="com.wmz.test.activity.SQLiteActivity" />
         <activity android:name="com.wmz.test.activity.NetActivity" />
@@ -65,20 +65,35 @@
         <activity android:name="com.wmz.test.activity.RecyclerViewActivity" />
         <activity android:name="com.wmz.test.activity.PlayerActivity" />
         <activity
-            android:name="com.wmz.test.activity.GifActivity"
-            android:label="@string/title_activity_gif" >
-        </activity>
-        <activity
             android:name="com.wmz.test.activity.FileSelectActivity"
             android:label="@string/title_activity_file_select" >
         </activity>
         <activity
             android:name="com.wmz.test.activity.VolleyActivity"
             android:label="@string/title_activity_volley" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.wmz.test.list" />
+            </intent-filter>
         </activity>
         <activity
             android:name="com.wmz.test.activity.ChartActivity"
             android:label="@string/title_activity_chart" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.wmz.test.list" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="com.wmz.test.activity.FaceActivity"
+            android:label="face" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="com.wmz.test.list" />
+            </intent-filter>
         </activity>
     </application>
 

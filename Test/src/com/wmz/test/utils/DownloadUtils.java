@@ -49,13 +49,13 @@ public class DownloadUtils {
 			final Handler handler, final int success, final int failure,
 			final int update) {
 		HttpUtils httpUtils = new HttpUtils();
-		httpUtils.download(url, target, true, true,
+		httpUtils.download(url, target, true, false,
 				new RequestCallBack<File>() {
 
 					@Override
 					public void onLoading(long total, long current,
 							boolean isUploading) {
-						Log.d("", "wmz:current=" + current);
+						Log.d("", "wmz:current=" + current+",total="+total);
 						// TODO Auto-generated method stub
 						String arr[] = { total + "", current + "" };
 						HandlerUtils.sendHandle(handler, arr, update);

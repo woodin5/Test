@@ -14,7 +14,7 @@ import android.text.GetChars;
  */
 public class ExecutorSeviceManager {
 	private static ExecutorService executorService = Executors
-			.newCachedThreadPool();
+			.newFixedThreadPool(3);
 
 	/**
 	 * ��ȡ�̳߳�ʵ��
@@ -34,6 +34,12 @@ public class ExecutorSeviceManager {
 	public static void shutdown() {
 		if (executorService != null) {
 			executorService.shutdown();
+		}
+	}
+
+	public static void shutdownNow() {
+		if (executorService != null) {
+			executorService.shutdownNow();
 		}
 	}
 }

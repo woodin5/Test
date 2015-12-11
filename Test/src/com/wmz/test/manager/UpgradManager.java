@@ -33,7 +33,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.wmz.test.R;
-import com.wmz.test.bean.UpgradBean;
+import com.wmz.test.bean.UpdateBean;
 import com.wmz.test.utils.Constants;
 import com.wmz.test.utils.FileUtils;
 
@@ -83,7 +83,7 @@ public class UpgradManager {
 
 	private String curVersionName = "";
 	private int curVersionCode;
-	private UpgradBean mUpgradBean;
+	private UpdateBean mUpgradBean;
 
 	private Handler mHandler = new Handler() {
 		public void handleMessage(Message msg) {
@@ -172,7 +172,7 @@ public class UpgradManager {
 
 	}
 
-	public boolean canUpgrad(UpgradBean bean) {
+	public boolean canUpgrad(UpdateBean bean) {
 
 		// �رղ��ͷ��ͷŽ������Ի���
 		if (mProDialog != null) {

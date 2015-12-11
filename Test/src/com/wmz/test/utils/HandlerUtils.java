@@ -10,12 +10,14 @@ public class HandlerUtils {
 		msg.obj = response;
 		handler.sendMessage(msg);
 	}
-	public static void sendHandler(Handler handler,String obj,int arg1,int arg2,int what){
-		Message msg = Message.obtain(); 
+
+	public static void sendHandler(Handler handler, String obj, int arg1,
+			int arg2, int what) {
+		Message msg = Message.obtain();
 		msg.what = what;
-		msg.arg1 = arg1; 
-		msg.arg2 = arg2; 
-		msg.obj = obj; 
-		handler.sendMessage(msg); 
+		msg.arg1 = arg1;
+		msg.arg2 = arg2;
+		msg.obj = obj;
+		handler.sendMessage(msg);
 	}
 }

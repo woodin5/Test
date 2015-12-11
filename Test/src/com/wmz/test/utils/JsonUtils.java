@@ -9,7 +9,7 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import com.wmz.test.bean.UpgradBean;
+import com.wmz.test.bean.UpdateBean;
 
 public class JsonUtils {
 	public static List<String> getListFromJsonByGetad(String json) {
@@ -45,16 +45,16 @@ public class JsonUtils {
 		return null;
 	}
 
-	public static UpgradBean getUpgradBeanFromJsonByCheckVersion(String json) {
+	public static UpdateBean getUpgradBeanFromJsonByCheckVersion(String json) {
 		if (json == null || "".equals(json))
 			return null;
-		UpgradBean bean = null;
+		UpdateBean bean = null;
 		try {
 			JSONObject object = new JSONObject(json);
 			String key = "status";
 			String value = object.getString(key);
 			if ("true".equals(value)) {
-				bean = new UpgradBean();
+				bean = new UpdateBean();
 				JSONObject object2 = object.getJSONObject("data");
 				bean.setDownloadUrl(object2.getString("downloadUrl"));
 				bean.setUpdateLog(object2.getString("updateLog"));

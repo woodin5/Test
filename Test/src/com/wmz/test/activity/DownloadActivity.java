@@ -16,7 +16,7 @@ import android.widget.Button;
 import com.wmz.test.R;
 import com.wmz.test.R.id;
 import com.wmz.test.R.layout;
-import com.wmz.test.bean.UpgradBean;
+import com.wmz.test.bean.UpdateBean;
 import com.wmz.test.manager.DownloadManager;
 import com.wmz.test.manager.UpgradManager;
 import com.wmz.test.utils.EnvironmentUtils;
@@ -37,7 +37,7 @@ public class DownloadActivity extends Activity implements OnClickListener {
 			switch (msg.what) {
 			case HANDLER_UPGRAD:
 				if (msg.obj != null) {
-					UpgradBean bean = JsonUtils
+					UpdateBean bean = JsonUtils
 							.getUpgradBeanFromJsonByCheckVersion(msg.obj
 									.toString());
 					Log.d(TAG, "wmz:upgrad=" + bean);
@@ -62,7 +62,7 @@ public class DownloadActivity extends Activity implements OnClickListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_down_apk);
-
+		
 		initView();
 	}
 
@@ -78,7 +78,7 @@ public class DownloadActivity extends Activity implements OnClickListener {
 		switch (v.getId()) {
 		case R.id.btn_download_apk:
 			// downloadApk();
-			Intent intent = new Intent(mContext, DownloadService.class);
+			Intent intent = new Intent(mContext, UpdateService.class);
 			startService(intent);
 			break;
 
@@ -95,7 +95,7 @@ public class DownloadActivity extends Activity implements OnClickListener {
 
 			@Override
 			public void run() {
-				String url = "http://192.168.18.200:8080/Demo/ShowImage";
+				String url = "http://192.168.1.148:8080/Demo/ShowImage";
 				String filePath = EnvironmentUtils.getExternalStoragePath()
 						+ File.separator + "wmz.jpg";
 
@@ -109,7 +109,7 @@ public class DownloadActivity extends Activity implements OnClickListener {
 	}
 
 	private void downloadApk() {
-		String url = "http://192.168.18.200:8080/Demo/DownloadApk";
+		String url = "http://192.168.1.148:8080/Demo/DownloadApk";
 		String filePath = EnvironmentUtils.getExternalStoragePath()
 				+ File.separator + "wmz.apk";
 		DownloadManager.downloadByxUtils(url, filePath, mHandler, 1, 2);
